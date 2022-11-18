@@ -1,0 +1,91 @@
+<html>
+	<style>
+		* {
+			background-color: black;
+			color: green;
+		}
+	</style>
+	<p> POLLING DATA...</p>
+
+	<script>
+
+		//FILL THESE OUT THEN RUN FILE:
+		var serverID = prompt("Server ID Please (found on signs):");
+		var serverIP = prompt("Server IP Please:");
+		var serverNameMOTD = prompt("Server Name or MOTD:");
+		//FILL THESE OUT THEN RUN FILE^^^^^^^^^^^^^^^^^^^^^^
+
+		var dots = " . . . . . . . . . . . 		";
+
+		for (let percent = 0; percent < 100; percent += Math.floor(Math.random() * 20)) {
+  			console.log(`Verifying ${dots}${percent}%`)
+		}
+		console.log(`Verifying ${dots}100%`);
+		console.log(`Server ID ${dots}${serverID}`);
+		console.log(`IP ADDRES ${dots}${serverIP}`);
+		console.log(`NAME/INFO ${dots}${serverNameMOTD}`);
+		console.log(`CODE-REFF ${dots}${Math.floor(Math.random() * 490)+":"+Math.floor(Math.random() * 20)}`);
+		console.log(`ADDT-VIOL ${dots}${Math.floor(Math.random() * (20 - 2) + 2)} ADDITIONAL VIOLATIONS`);
+
+		var currentScore = Math.floor(Math.random() * 3);
+		var variability;
+		var runAgain = true;
+
+		for (let i = Math.floor(Math.random() * (20 - 10) + 10); i > 0; i--) {
+			switch(Math.floor(Math.random() * 10)) {
+				case 0:
+					variability = 1;
+					break;
+				case 1:
+					variability = Math.floor(Math.random() * (5 - 1) + 1);
+					break;
+				case 2:
+					variability = Math.floor(Math.random() * (6 - 1) + 1);
+					break;
+				case 3:
+					variability = Math.floor(Math.random() * 7);
+					break;
+				case 4:
+					variability = Math.floor(Math.random() * 15);
+					break;
+				case 5:
+					variability = Math.floor(Math.random() * 16);
+					break;
+				case 6:
+					variability = Math.floor(Math.random() * (20 - 1) + 1);
+					break;
+				case 7:
+					variability = Math.floor(Math.random() * 3);
+					break;
+				case 8:
+					variability = Math.floor(Math.random() * 2);
+					break;
+				case 9:
+					variability = Math.floor(Math.random() * (8 - 1) + 1);
+					break;
+				case 10:
+					variability = Math.floor(Math.random() * (10 - 1) + 1);
+					break;
+			}
+
+			if(currentScore < variability){
+				currentScore += variability;
+			}
+			if(currentScore + variability > 100) {
+				currentScore -= variability;
+			}
+
+			switch(Math.floor(Math.random()* 3)){
+				case 1: 
+					currentScore -= variability;
+					break;
+				default:
+					currentScore += variability;
+					break;
+			}
+
+			console.log(`COMP SCOR ${dots}SCORE COMPOSITE = ${currentScore}`);
+		}
+
+	</script>
+</html>
